@@ -1,0 +1,79 @@
+
+drop table parmanentaddress;
+drop table presentaddress;
+drop table introducer;
+
+drop table customer;
+
+create table customer (	
+	fname varchar(30),
+	mname varchar(30), 
+	lname varchar(30), 
+	faname varchar(50), 
+	moname varchar(50), 
+	cid integer,
+	dob date,
+	sex varchar(20), 
+	mstatus varchar(30), 
+	race varchar(30), 
+	piority varchar(30), 
+	designation varchar(30),
+	nid varchar(40), 
+	dlicence varchar(40),
+	rstatus varchar(30), 
+	profession varchar(30),
+	mobile1 varchar(30), 
+	mobile2 varchar(30),
+	tele varchar(30),
+	email varchar(30),
+	div varchar(30),
+	country varchar(30),
+	ideposit varchar(30), 
+	currency varchar(30),
+	irate varchar(30),
+	nname varchar(30),
+	nrel varchar(30),
+	ndetails varchar(30),
+constraint pk_customer primary key(cid)
+);
+
+
+
+create table presentaddress (
+	cid integer,
+	paddress_hno varchar(30),
+	paddress_rno varchar(30), 
+	village varchar(30), 
+	thana varchar(30),
+	district varchar(30),
+	pcode varchar(30),
+	constrain presentaddress_FK foreign key(cid)
+	references customer(cid) 
+);
+
+insert into presentaddress(cid,paddress_hno,paddress_rno,village,thana,district,pcode) values(10,'aaa','bb','cc','dd','ee','ff');
+
+create table permanentaddress (
+	cid integer,
+	per_hno varchar(30),
+	per_rno varchar(30), 
+	per_vil varchar(30), 
+	per_thana varchar(30), 
+	per_dis varchar(30),
+	per_pcode varchar(30),
+	constraint permanentaddress_FK foreign key(cid)
+	references customer(cid)
+);
+ 
+insert into permanentaddress(cid,per_hno,per_rno,per_vil,per_thana,per_dis,per_pcode) values(10,'aaa','bb','cc','dd','ee','ff');
+
+create table introducer (	 
+	intro_account integer,
+	intro_name varchar2(30),	 
+	introduced_account integer,
+	constraint introducer_FK foreign key(intro_account)
+	references customer(cid) on delete cascade enable,
+	constraint introducer_FK1 foreign key(introduced_account)
+	references customer(cid) on delete cascade enable
+);
+ 

@@ -1,0 +1,197 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CreateAccount.aspx.cs" Inherits="CreateAccount" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+<form >
+    <div>
+    
+        Create account:</div>
+    <table style="width: 101%; height: 60px;">
+        <tr>
+            <td class="style2">
+                Title of the account:<asp:TextBox ID="TextBox1" runat="server" Height="27px" 
+                    Width="411px"></asp:TextBox>
+            </td>
+            <td class="style3">
+            </td>
+            <td class="style3">
+            </td>
+        </tr>
+        <tr>
+            <td class="style1">
+                Type of account:&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="TextBox2" runat="server" Height="27px" Width="411px"></asp:TextBox>
+            </td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style1">
+                Operating information:<asp:TextBox ID="TextBox3" runat="server" Height="27px" 
+                    Width="400px"></asp:TextBox>
+            </td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+    <table style="width: 101%; height: 121px;">
+        <tr>
+            <td class="style11">
+                Initial Deposit:<asp:TextBox ID="TextBox4" runat="server" Height="30px" 
+                    Width="129px" style="margin-top: 1px"></asp:TextBox>
+                Currency:<asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem Selected="True">BDT</asp:ListItem>
+                    <asp:ListItem>Doller</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+            <td class="style6">
+                Interest rate:<asp:Label ID="Label1" runat="server" Text="?"></asp:Label>
+            </td>
+            <td class="style12">
+            </td>
+        </tr>
+        <tr>
+            <td class="style5" colspan="3">
+                Introducer information(must be filled and verified)</td>
+        </tr>
+    </table>
+    <table style="width: 101%; height: 60px;">
+        <tr>
+            <td class="style7">
+                Name:<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                Account:<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style7">
+                Signature:<asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                Verified by(Details):<asp:TextBox ID="TextBox8" runat="server" Height="29px" 
+                    Width="358px"></asp:TextBox>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+    <table style="width: 101%; height: 60px;">
+        <tr>
+            <td class="style8">
+                Nominee&#39;s name:<asp:TextBox ID="TextBox9" runat="server" Height="29px" 
+                    Width="183px"></asp:TextBox>
+            </td>
+            <td class="style10">
+                Relation with customer:<asp:DropDownList ID="DropDownList2" runat="server" 
+                    style="margin-left: 3px" Width="95px">
+                    <asp:ListItem Selected="True">Chidren</asp:ListItem>
+                    <asp:ListItem>Parent</asp:ListItem>
+                    <asp:ListItem>Siblings</asp:ListItem>
+                    <asp:ListItem>Husband/wife</asp:ListItem>
+                    <asp:ListItem>Relative</asp:ListItem>
+                    <asp:ListItem>Cousine</asp:ListItem>
+                    <asp:ListItem>Others</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style8">
+                Details:<asp:TextBox ID="TextBox11" runat="server" Height="31px" Width="341px"></asp:TextBox>
+            </td>
+            <td class="style10">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style8">
+                &nbsp;</td>
+            <td class="style10">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+    <table style="width: 101%; height: 60px;">
+        <tr>
+            <td colspan="3">
+                Close account (Needed when account is needed to be cloased)
+                <asp:RadioButton ID="RadioButton1" runat="server" Text="Yes" 
+                    AutoPostBack="True" />
+            </td>
+        </tr>
+        <tr>
+            <td class="style13">
+                Comment:<asp:TextBox ID="TextBox12" runat="server"></asp:TextBox>
+            </td>
+            <td class="style14">
+                Reason(s):<asp:TextBox ID="TextBox13" runat="server" Height="26px" 
+                    Width="163px"></asp:TextBox>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style13">
+                &nbsp;</td>
+            <td class="style14">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style13">
+                &nbsp;</td>
+            <td class="style14">
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+    <table style="width:100%;">
+        <tr>
+            <td class="style15">
+                <asp:Label ID="Label2" runat="server" 
+                    Text="I agree to the terms and condition of the bank"></asp:Label>
+                <asp:RadioButton ID="RadioButton2" runat="server" Checked="True" Text="Yes" />
+            </td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style15" align="center">
+                &nbsp;</td>
+            <td>
+                <asp:Button ID="Button1" runat="server" Height="48px" Text="Create account" 
+                    Width="208px" onclick="Button1_Click" 
+                    style="float:left;margin-left:100px;font-weight:bolder" />
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style15">          
+
+
+            </td>
+            <td>
+                <br />
+                <br />
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+    </form>
+</asp:Content>
+

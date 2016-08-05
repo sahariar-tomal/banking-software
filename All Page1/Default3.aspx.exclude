@@ -1,0 +1,13 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Default3.aspx.cs" Inherits="Default3" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    <div id="leftside" style="background-color:Aqua;float:left">
+        <p>this is left pane</p>
+        <p>this is second</p>
+    </div>
+    <div id="rightside">
+    </div>
+</asp:Content>
+

@@ -1,0 +1,47 @@
+create table Employee
+(
+        eid varchar(30),
+	fname varchar(30),
+	mname varchar(30), 
+	lname varchar(30), 
+	faname varchar(30),
+	moname varchar(30),
+	gender varchar(30),
+	department varchar(30),
+	section  varchar(30),
+	phouseno varchar(30), 
+	proadno varchar(30),
+	plocation varchar(30), 
+	pcity varchar(30), 
+	pcountry varchar(30),
+	per_houseno varchar(30),
+	per_roadno varchar(30), 
+	per_location varchar(30), 
+	per_city varchar(30), 
+	per_country varchar(30),
+	mobile varchar(30),
+	mail varchar(30),
+	uname varchar(30), 
+	pass varchar(30), 
+	confirmpass varchar(30),
+	primary key(eid)
+);
+
+
+insert into Employee(fname,mname,lname, faname,moname,gender,department,section,phouseno,proadno,plocation,pcity,pcountry,per_houseno,per_roadno,per_location,per_city,per_country,mobile,mail,uname,pass,confirmpass)
+values('tomal','akash','toufique','baba','ma','male','general','senior_officer','12','1','abc','Dhaka','Bangladesh','12','1','abc','Dhaka','Bangladesh','01720981754','ns_tomal@yahoo.com','hbk','hbk','hbk');
+
+
+insert into Employee(fname,mname,lname, faname,moname,gender,department,section,phouseno,proadno,plocation,pcity,pcountry,per_houseno,per_roadno,per_location,per_city,per_country,mobile,mail,uname,pass,confirmpass)
+values('tomal','akash','toufique','baba','ma','male','general','Manager','12','1','abc','Dhaka','Bangladesh','12','1','abc','Dhaka','Bangladesh','01720981754','ns_tomal@yahoo.com','hbk','hbk','hbk');
+
+create sequence employee_seq start with 2000 increment by 1;
+
+create or replace trigger emp_trig
+before insert on Employee
+for each row
+begin
+select employee_seq.nextval into :new.eid from dual;
+end;
+/
+

@@ -1,0 +1,41 @@
+drop sequence customer_seq;
+
+
+create sequence customer_seq start with 1003 increment by 1; 
+create sequence paddress_seq start with 1003 increment by 1; 
+create sequence peraddress_seq start with 1003 increment by 1;
+
+create sequence loan_seq start with 3002 increment by 1; 
+
+select customer_seq.nextval from dual;
+
+
+create or replace trigger cust_trig
+before insert on Customer
+for each row
+begin
+select customer_seq.nextval into :new.cid from dual;
+end;
+/
+
+
+
+
+create or replace trigger paddress_trig
+before insert on presentaddress
+for each row
+begin
+select paddress_seq.nextval into :new.cid from dual;
+end;
+/
+
+
+
+create or replace trigger peraddress_trig
+before insert on permanentaddress
+for each row
+begin
+select peraddress_seq.nextval into :new.cid from dual;
+end;
+/
+

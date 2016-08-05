@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link  rel="stylesheet"  type="text/css"  href="Styles/stylesheet.css"  />
+   
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="FullPage">
+    <div id="HeaderContainer">
+        <div style="float:left">
+                <img alt="BankIcon" src="images/BankIcon.jpg" id="bankicon" height="150" width="150" />
+        </div>
+        <div>
+            <div id="bankName">
+                <h1 id="name">
+                    Some Bank Limited</h1>
+                <p>
+                    &nbsp;</p>
+            </div>
+        </div>   
+    </div>
+    <div style="clear:both;"></div>
+     <div id="menu">
+		<ul>
+			<!--<li class="current_page_item"><a href="#">Home</a></li>-->
+            <li><a href="Afterlogin.aspx" shape="rect">Home</a></li>
+			
+			
+			<li><a href="AboutPage.aspx">About</a></li>
+			<!--<li><a href="ContactPage.aspx">Contact</a></li>-->
+			<li><a href="login.aspx">LOG OUT</a></li>
+		</ul>
+	</div>
+    <div style="background-color:Silver">
+        <asp:ContentPlaceHolder id="MainContent" runat="server" >
+        
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    
+    </div>
+    
+    </form>
+</body>
+</html>

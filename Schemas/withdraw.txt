@@ -1,0 +1,71 @@
+create table loan
+(
+	cid integer,
+	loannumber varchar(20) not null,
+	amount number(30,4),
+	dateofsanction varchar(20),
+	dateofpayment varchar(20),
+	interestrate number(10,4),
+	mortgageammount number(10,4),
+	mortgagedescription varchar(200),
+	warrantee varchar(200),
+	legalissue varchar(200),
+	last_update date,
+	installamount number(10,4),
+	paidamount number(10,4),
+	CONSTRAINT pk_loan PRIMARY KEY(loannumber),
+	CONSTRAINT loan_FK FOREIGN KEY (cid)
+	  REFERENCES  customer (cid) ON DELETE CASCADE ENABLE	
+);
+
+create table money_withdraw(
+	user_id varchar2(20),
+	account_no integer,
+	amount number(10,2),
+	withdraw_time varchar2(20),
+	withdraw_date date,
+	CONSTRAINT money_withdraw FOREIGN KEY (user_id)
+	  REFERENCES  Employee (Eid) ON DELETE CASCADE ENABLE, 
+	CONSTRAINT money_withdraw1 FOREIGN KEY (account_no)
+	  REFERENCES  Customer (Cid) ON DELETE CASCADE ENABLE	
+);
+drop table money_withdraw;
+
+
+
+
+
+create table money_deposit(
+	user_id varchar2(20),
+	account_no integer,
+	amount number(10,2),
+	withdraw_time varchar2(20),
+	withdraw_date date,
+	CONSTRAINT money_deposit FOREIGN KEY (user_id)
+	  REFERENCES  Employee (Eid) ON DELETE CASCADE ENABLE, 
+	CONSTRAINT money_deposit1 FOREIGN KEY (account_no)
+	  REFERENCES  Customer (Cid) ON DELETE CASCADE ENABLE
+);
+drop table money_withdraw;
+
+
+
+create or replace trigger withdraw_trig
+after insert on money_withdraw
+for each row
+begin
+update Customer set ideposit=ideposit-:new.amount, update_date=:new.withdraw_date
+where cid=account_no;
+end;
+/
+
+create or replace trigger deposit_trig
+after insert on money_deposit
+for each row
+begin
+update Customer set ideposit=ideposit+:new.amount, update_date=:new.deposit_date
+where cid=account_no;
+end;
+/
+
+
